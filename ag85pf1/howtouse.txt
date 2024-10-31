@@ -1,0 +1,2 @@
+1. According to version of C++ you need take a corresponded demo from core part of the AG85Cppframebrary, theese are partly demos and party application blanks, and modify the code to needs of your prgramm.
+2. Compile according to rules of your C++ compiler specifing to it .cpp your program has.
