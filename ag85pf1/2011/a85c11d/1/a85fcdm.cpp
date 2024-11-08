@@ -2,15 +2,16 @@
 #include <iostream>
 #include <typeinfo>
 
+
 #include "..//..//..//1998//a85f98cl//1//a85fcecs.hpp" //AG19850316Cppframebrary1PartCorelibrary1EnvironmentCommandlineargumentsStorage
-#include "..//..//a85f11cl//1//a85fclig.hpp" //AG19850316Cppframebrary1PartCorelibrary1globalAtomicIncrementingintegeridentificatorsgenerator
-#include "..//..//a85f11cl//1//a85fclii.hpp" //AG19850316Cppframebrary1PartCorelibrary1InstanceAtomicIncrementingintegeridentificatorsgenerator
-#include "..//..//a85f11cl//1//a85fclnt.hpp" //AG19850316Cppframebrary1PartCore1Commaonlibrary1Uptonanosecondstimer
+
+#include "..//..//a85fcfs.hpp" //AG19850316Cppframebrary1PartCore1Framebrarystaticconfiuration
+#include "a85fcas.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Applicationstaticconfiuration
 
 #include "a85fcam.hpp" //AG19850316Cppframebrary1PartCore1Demo1Applicationmeasurements
 #include "a85fcasc.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Applicationstartingconfiguration
 #include "a85fcasl.hpp" //AG19850316Cppframebrary1PartCore1Demo1Applicationserviceslocator
-#include "a85fcecr.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Fromenvironenmentcommandlinedemodynamicconfigurationreader
+
 
 int main(int argc, char * argv[]) {
     
@@ -49,6 +50,17 @@ int main(int argc, char * argv[]) {
             << "\n";
         #endif //AG19850316_1CPPLIBRARY_TIMER_ENABLED
 
+
+        std::clog 
+            << "Demo static configuration application name:"
+            << AG85::Cppframebrary1::Application::StaticConfiguration::APPLICATION_NAME
+            << std::endl;
+        std::clog 
+            << "Demo static configuration application version number:"
+            << AG85::Cppframebrary1::Application::StaticConfiguration::APPLICATION_VERSION_NUMBER
+            << std::endl;
+
+
         std::clog 
             << "applicationServicelocator.GetNonconstrefApplicationstartingconfiguration().GetStringDemoParameter1Value(): " 
             << applicationServicelocator.GetNonconstrefApplicationstartingconfiguration().GetDemoParameter1StringvalueRef() 
@@ -57,7 +69,8 @@ int main(int argc, char * argv[]) {
             << "applicationServicelocator.GetApplicationstartingconfiguration().GetStringDemoParameter1Value(): "
             << applicationServicelocator.GetApplicationstartingconfiguration().GetDemoParameter1StringvalueRef()
             << "\n";
-        
+
+
         applicationServicelocator.GetNextAtomicidOfGroup1();
         unsigned int currentAtomicidOfGroup1 = applicationServicelocator.GetNextAtomicidOfGroup1();
         if (currentAtomicidOfGroup1 != 2)
@@ -71,6 +84,7 @@ int main(int argc, char * argv[]) {
             return -1;
         }
 
+
         applicationMeasurements.GetGeneralUptoinnanosecondstimersRef(ApplicationMeasurements::TIMER_TOTAL).Stop();
         
         #ifndef AG19850316_1CPPLIBRARY_TIMER_DISABLED
@@ -82,12 +96,20 @@ int main(int argc, char * argv[]) {
         return 0;
 
     } catch (std::bad_alloc& exception) {
-        std::clog << "failed to allocate memory (" << exception.what() << ")!" << "\n";
+        std::clog << "failed to allocate memory (" << exception.what() << ")" << "\n";
+        return -1;
     } catch (std::exception& exception) {
-        std::clog << "notexpectederror " << exception.what() << ": ";
-        std::clog << "cppexceptiontype-" << typeid(exception).name() << "\n";
+        std::clog 
+            << "notexpectederror " 
+            << exception.what() 
+            << "; "
+            << "cppexceptiontype-" 
+            << typeid(exception).name() 
+            << "\n";
+        return -2;
     } catch (...) {
         std::clog << "unknownerror" << "\n";
+        return -3;
     }
 
     return -1;
@@ -95,3 +117,4 @@ int main(int argc, char * argv[]) {
 }
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)

@@ -31,14 +31,14 @@ namespace AG85{
                         , countingStubTimerIds
                     } ;
 
-                    Uptonanosecondstimer & GetGeneralUptoinnanosecondstimersRef(enum UptonanosecondstimersIds insecondstimersIds)
+                    Uptoinnanosecondstimer & GetGeneralUptoinnanosecondstimersRef(enum UptonanosecondstimersIds insecondstimersIds)
                     { 
-                        return generalInsecondstimers[insecondstimersIds];
+                        return generalUptoinnanosecondstimers[insecondstimersIds];
                     }
 
                     private:
 
-                        Uptonanosecondstimer generalInsecondstimers[countingStubTimerIds];
+                        Uptoinnanosecondstimer generalUptoinnanosecondstimers[countingStubTimerIds];
 
                 }; //class ApplicationMeasurements
 
@@ -53,3 +53,4 @@ namespace AG85{
 #endif //A85FCAM_HPP - AG19850316Cppframebrary1PartCore1Demo1Applicationmeasurements
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)
