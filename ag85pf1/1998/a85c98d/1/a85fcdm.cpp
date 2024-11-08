@@ -2,21 +2,20 @@
 #include <iostream>
 #include <typeinfo>
 
+
 #include "..//..//a85f98cl//1//a85fcbt.hpp" //AG19850316Cppframebrary1Part1998Corelibrary1BufferTyped
 #include "..//..//a85f98cl//1//a85fcecs.hpp" //AG19850316Cppframebrary1Part1998Corelibrary1EnvironmentCommandlineargumentsStorage
-#include "..//..//a85f98cl//1//a85fclig.hpp" //AG19850316Cppframebrary1Part1998Corelibrary1globalIncrementingintegeridentificatorsgenerator
-#include "..//..//a85f98cl//1//a85fclii.hpp" //AG19850316Cppframebrary1Part1998Corelibrary1InstanceIncrementingintegeridentificatorsgenerator
-#include "..//..//a85f98cl//1//a85fclst.hpp" //AG19850316Cppframebrary1PartCore1Commaonlibrary1Insecondstimer
 
-#include "..//..//a85fcsc.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Applicationstaticconfiuration
+#include "..//..//a85fcfs.hpp" //AG19850316Cppframebrary1PartCore1Framebrarystaticconfiuration
+#include "a85fcas.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Applicationstaticconfiuration
 
 #include "a85fcam.hpp" //AG19850316Cppframebrary1PartCore1Demo1Applicationmeasurements
 #include "a85fcasc.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Applicationstartingconfiguration
 #include "a85fcasl.hpp" //AG19850316Cppframebrary1PartCore1Demo1Applicationserviceslocator
-#include "a85fcecr.hpp" //AG19850316Cppframebrary1PartCore1Applicationblank1Fromenvironenmentcommandlinedemodynamicconfigurationreader
 
 
 using namespace AG85::Cppframebrary1::CppVersion1998::Corelibrary1;
+
 
 class DemoBufferTyped 
     : public BufferToTypedAdditive<DemoBufferTyped>
@@ -47,8 +46,7 @@ private:
 
 int main(int argc, char * argv[]) {
 
-    using namespace AG85::Cppframebrary1::CppVersion1998::Corelibrary1;
-
+    using namespace AG85::Cppframebrary1::CppVersion1998;
     using namespace AG85::Cppframebrary1::CppVersion1998::Application;
 
 	try {
@@ -85,12 +83,16 @@ int main(int argc, char * argv[]) {
 
 
         std::clog 
-            << "Application static configuration application name:"
-            << StaticConfiguration::APPLICATION_NAME
+            << "Framebrary static configuration version number:"
+            << AG85::Cppframebrary1::StaticConfiguration::FRAMEBRARY_VERSION_NUMBER
             << std::endl;
         std::clog 
-            << "Application static configuration application version number:"
-            << StaticConfiguration::APPLICATION_VERSION 
+            << "Demo static configuration application name:"
+            << AG85::Cppframebrary1::Application::StaticConfiguration::APPLICATION_NAME
+            << std::endl;
+        std::clog 
+            << "Demo static configuration application version number:"
+            << AG85::Cppframebrary1::Application::StaticConfiguration::APPLICATION_VERSION_NUMBER
             << std::endl;
 
 
@@ -107,7 +109,7 @@ int main(int argc, char * argv[]) {
             != argv[1]
         )
         {
-            return -1;
+            return -4;
         }
         std::clog 
             << "\tapplicationServicelocator.GetApplicationstartingconfiguration().GetStringDemoParameter1Value(): "
@@ -120,7 +122,7 @@ int main(int argc, char * argv[]) {
             != argv[1]
         )
         {
-            return -1;
+            return -5;
         }
 
 
@@ -134,7 +136,7 @@ int main(int argc, char * argv[]) {
             << std::endl;
         if (currentIdOfGroup1 != 2)
         {
-            return -1;
+            return -6;
         }
 
         applicationServicelocator.GetNextIdOfGroup2();
@@ -145,7 +147,7 @@ int main(int argc, char * argv[]) {
             << std::endl;
         if (currentIdOfGroup2 != 3)
         {
-            return -1;
+            return -7;
         }
 
 
@@ -183,7 +185,7 @@ int main(int argc, char * argv[]) {
             )
         )
         {
-            return -1;
+            return -8;
         }
 
         std::clog 
@@ -209,7 +211,7 @@ int main(int argc, char * argv[]) {
             )
         )
         {
-                return -1;
+                return -9;
         }
 
 
@@ -225,16 +227,23 @@ int main(int argc, char * argv[]) {
         return 0;
 
     } catch (std::bad_alloc& exception) {
-        std::clog << "failed to allocate memory (" << exception.what() << ")!" << "\n";
+        std::clog << "failed to allocate memory (" << exception.what() << ")" << "\n";
+        return -1;
     } catch (std::exception& exception) {
-        std::clog << "notexpectederror " << exception.what() << ": ";
-        std::clog << "cppexceptiontype-" << typeid(exception).name() << "\n";
+        std::clog 
+            << "nonexpectederror " 
+            << exception.what() 
+            << "; "
+            << "cppexceptiontype-" 
+            << typeid(exception).name() 
+            << "\n";
+        return -2;
     } catch (...) {
         std::clog << "unknownerror" << "\n";
+        return -3;
     }
-
-    return -1;
 
 }
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)
