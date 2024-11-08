@@ -74,3 +74,4 @@ namespace AG85{
 #endif //A85FCBT_HPP - AG19850316Cppframebrary1Part1998Corelibrary1BufferTyped
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)

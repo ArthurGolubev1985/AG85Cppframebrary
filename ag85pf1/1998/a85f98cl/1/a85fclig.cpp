@@ -20,3 +20,4 @@ namespace AG85{
 } //namespace AG19850316
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)

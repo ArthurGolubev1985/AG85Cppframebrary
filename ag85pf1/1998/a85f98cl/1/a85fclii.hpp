@@ -42,3 +42,4 @@ namespace AG85{
 #endif //A85FCLII_HPP - AG19850316Cppframebrary1Part1998Corelibrary1InstanceIncrementingintegeridentificatorsgenerator
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)
