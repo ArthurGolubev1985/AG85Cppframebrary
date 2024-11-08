@@ -1,7 +1,7 @@
 
 #pragma once
-#ifndef A85FCLNT_HPP //AG19850316Cppframebrary1Part2011Corelibrary1Uptonanosecondstimer
-#define A85FCLNT_HPP //AG19850316Cppframebrary1Part2011Corelibrary1Uptonanosecondstimer
+#ifndef A85FCLNT_HPP //AG19850316Cppframebrary1Part2011Corelibrary1Uptoinnanosecondstimer
+#define A85FCLNT_HPP //AG19850316Cppframebrary1Part2011Corelibrary1Uptoinnanosecondstimer
 
 #include <chrono>
 
@@ -16,14 +16,14 @@ namespace AG85{
 				//Note:
 				// empty calls are intended to be optimized out by a compiler, so that it costs nothing in run-time
 				// Connectedreminding: keep the functions inline
-				class Uptonanosecondstimer{
+				class Uptoinnanosecondstimer{
 				public:
 
 					//the helper for stopping insecondstimer in RAII manner
 					class StartAndAutoStopGuard{
-						Uptonanosecondstimer& insecondstimer;
+						Uptoinnanosecondstimer& insecondstimer;
 					public:
-						explicit StartAndAutoStopGuard(Uptonanosecondstimer& nTimer)
+						explicit StartAndAutoStopGuard(Uptoinnanosecondstimer& nTimer)
 							: insecondstimer(nTimer)
 						{
 							insecondstimer.Start();
@@ -36,9 +36,9 @@ namespace AG85{
 
 					//the helper for auto resuming insecondstimer in RAII manner
 					class PauseAndAutoResumeGuard{
-						Uptonanosecondstimer& insecondstimer;
+						Uptoinnanosecondstimer& insecondstimer;
 					public:
-						explicit PauseAndAutoResumeGuard(Uptonanosecondstimer& nTimer)
+						explicit PauseAndAutoResumeGuard(Uptoinnanosecondstimer& nTimer)
 							: insecondstimer(nTimer)
 						{
 							insecondstimer.Stop();
@@ -49,7 +49,7 @@ namespace AG85{
 					};
 
 				public:
-					Uptonanosecondstimer()
+					Uptoinnanosecondstimer()
 					: state(paused)
 					{
 				#ifndef AG19850316_1CPPGENERALLIBRARY_TIMER_DISABLED
@@ -127,7 +127,7 @@ namespace AG85{
 				#endif
 					}
 
-					void operator= (const Uptonanosecondstimer & aInsecondstimer)
+					void operator= (const Uptoinnanosecondstimer & aInsecondstimer)
 					{
 						startStamp = aInsecondstimer.startStamp;
 						sum = aInsecondstimer.sum;
@@ -152,6 +152,7 @@ namespace AG85{
 
 } //namespace AG19850316
 
-#endif //A85FCLNT_HPP - AG19850316Cppframebrary1Part2011Corelibrary1Uptonanosecondstimer
+#endif //A85FCLNT_HPP - AG19850316Cppframebrary1Part2011Corelibrary1Uptoinnanosecondstimer
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
+// The file is a part of AG19850316 C++ Framebrary 1 (ag85cppframebrary1)
