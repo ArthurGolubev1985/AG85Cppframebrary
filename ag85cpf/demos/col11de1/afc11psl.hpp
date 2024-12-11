@@ -9,7 +9,6 @@
 #include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclig11.hpp" //AG19850316CppframebraryPartCorelibrary1GlobalAtomicIncrementingintegeridentificatorsgeneratorCpp2011
 #include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclii11.hpp" //AG19850316CppframebraryPartCorelibrary1InstanceAtomicIncrementingintegeridentificatorsgeneratorCpp2011
 
-#include "afc11psc.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramCommandlineconfiguration
 #include "afc11pm.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramMeasurements
 
 namespace AG85{
@@ -24,16 +23,6 @@ namespace AG85{
             class ProgramCommonServicesLocator{
             public:
 
-                const ProgramCommandlineconfiguration & GetApplicationCommandlineconfiguration() const
-                {
-                    return demoGeneralDynamicconfiguration;
-                }
-
-                ProgramCommandlineconfiguration & GetNonconstrefApplicationCommandlineconfiguration() const
-                {
-                    return (ProgramCommandlineconfiguration &)nonconstrefApplicationCommandlineconfiguration;
-                }
-
                 ProgramMeasurements & GetApplicationMeasurements()
                 {
                     return applicationMeasurements;
@@ -41,13 +30,10 @@ namespace AG85{
 
                 explicit ProgramCommonServicesLocator
                 (
-                    ProgramCommandlineconfiguration & cDemoGeneralDynamicconfiguration
-                    , ProgramMeasurements & cApplicationMeasurements
+                    ProgramMeasurements & cApplicationMeasurements
                     , unsigned int demoCounter1Startingvalue
                 )
-                :demoGeneralDynamicconfiguration(cDemoGeneralDynamicconfiguration)
-                , nonconstrefApplicationCommandlineconfiguration(cDemoGeneralDynamicconfiguration)
-                , applicationMeasurements(cApplicationMeasurements)
+                : applicationMeasurements(cApplicationMeasurements)
                 , demoAtomicidOfGroup1(demoCounter1Startingvalue)
                 {
                 }
@@ -65,8 +51,6 @@ namespace AG85{
                 }
 
             private:
-                const ProgramCommandlineconfiguration & demoGeneralDynamicconfiguration;
-                ProgramCommandlineconfiguration & nonconstrefApplicationCommandlineconfiguration;
 
                 ProgramMeasurements & applicationMeasurements;
 

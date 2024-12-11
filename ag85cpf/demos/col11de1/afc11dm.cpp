@@ -2,20 +2,16 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afcecs98.hpp" //AG19850316CppframebraryPartCorelibrary1EnvironmentCommandlineargumentsstorageCpp1998
-
 #include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclsc11.hpp" //AG19850316CppframebraryPartCorelibrary1FramebraryStaticconfigurationCpp2011
 
 #include "afc11sco.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramStaticconfiguration
 
 #include "afc11pm.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramMeasurements
-#include "afc11psc.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramCommandlineconfiguration
 #include "afc11psl.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramServiceslocator
 
 
 int main(int argc, char * argv[]) {
     
-    using namespace AG85::Cppframebrary::Corelibrary1::CppVersion1998;
     using namespace AG85::Cppframebrary::Corelibrary1::CppVersion2011;
 
     using namespace AG85::Cppframebrary::CoreLibraryCpp2011Demo1;
@@ -27,25 +23,15 @@ int main(int argc, char * argv[]) {
         programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_TOTAL).Run();
         programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Run();
         
-        EnvironmentCommandlineStringArgumentsStorage environmentCommandlineStringArgumentsStorage(1, argc, argv);
-
-        ProgramCommandlineconfiguration demoApplicationCommandlineconfiguration 
+        ProgramCommonServicesLocator programServicelocator
         (
-            environmentCommandlineStringArgumentsStorage.GetEnvironmentCommandlineArguments().size() > 0
-            ? environmentCommandlineStringArgumentsStorage.GetEnvironmentCommandlineArguments()[0]
-            : ""
-        );
-
-        ProgramCommonServicesLocator applicationServicelocator
-        (
-            demoApplicationCommandlineconfiguration
-            , programMeasurements
+            programMeasurements
             , 1
         );
 
         programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Pause();
         #ifndef AG19850316_1CPPLIBRARY_TIMER_DISABLED
-        std::clog << "Innanoseconds total apllication configuring time:" 
+        std::clog << "In nanoseconds total apllication configuring time:" 
             << programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).GetInnanosecondsinterval().count()
             << "\n";
         #endif //AG19850316_1CPPLIBRARY_TIMER_ENABLED
@@ -65,40 +51,41 @@ int main(int argc, char * argv[]) {
             << std::endl;
 
 
-        std::clog << "Look at source code for meanings of output values of this demo." << std::endl;
+        std::clog << "Look at source code for meanings of the following demo." << std::endl;
 
 
+        std::clog << "Ids generators values demo:" << std::endl;
+
+        programServicelocator.GetNextAtomicidOfGroup1();
+        unsigned int currentAtomicidOfGroup1 = programServicelocator.GetNextAtomicidOfGroup1();
         std::clog 
-            << "applicationServicelocator.GetNonconstrefApplicationCommandlineconfiguration().GetStringDemoParameter1Value():" 
-            << applicationServicelocator.GetNonconstrefApplicationCommandlineconfiguration().GetDemoParameter1StringvalueRef() 
-            << "\n";
-        std::clog 
-            << "applicationServicelocator.GetApplicationCommandlineconfiguration().GetStringDemoParameter1Value():"
-            << applicationServicelocator.GetApplicationCommandlineconfiguration().GetDemoParameter1StringvalueRef()
-            << "\n";
-
-
-        applicationServicelocator.GetNextAtomicidOfGroup1();
-        unsigned int currentAtomicidOfGroup1 = applicationServicelocator.GetNextAtomicidOfGroup1();
+            << "\tcurrentAtomicidOfGroup1 (programServicelocator.GetNextAtomicidOfGroup1()):"
+            << currentAtomicidOfGroup1
+            << std::endl;
         if (currentAtomicidOfGroup1 != 2)
         {
-            return -1;
+            return -4;
         }
-        applicationServicelocator.GetNextAtomicidOfGroup2();
-        unsigned int currentAtomicidOfGroup2 = applicationServicelocator.GetNextAtomicidOfGroup2();
+        programServicelocator.GetNextAtomicidOfGroup2();
+        unsigned int currentAtomicidOfGroup2 = programServicelocator.GetNextAtomicidOfGroup2();
+        std::clog 
+            << "\tcurrentAtomicidOfGroup2 (programServicelocator.GetNextAtomicidOfGroup2()):"
+            << currentAtomicidOfGroup2
+            << std::endl;
         if (currentAtomicidOfGroup2 != 1)
         {
-            return -1;
+            return -5;
         }
 
 
         programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_TOTAL).Pause();
         
         #ifndef AG19850316_1CPPLIBRARY_TIMER_DISABLED
-        std::clog << "Innanoseconds total apllication running time:" 
+        std::clog << "In nanoseconds total apllication running time:" 
             << programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_TOTAL).GetInnanosecondsinterval().count()
             << "\n";
         #endif //AG19850316_1CPPLIBRARY_TIMER_ENABLED
+
 
         return 0;
 
