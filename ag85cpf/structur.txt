@@ -5,7 +5,6 @@ libssrc/
 			apfcol98
 				1
 					afcbt98.hpp - Part Corelibrary1BufferTypedCpp1998
-					afcecs98.hpp - Part Corelibrary1EnvironmentCommandlineargumentsstorageCpp1998
 					afclig98.cpp -  code for Part CorelibraryGlobalIncrementingintegeridentificatorsgeneratorCpp1998
 					afclig98.hpp - Part CorelibraryGlobalIncrementingintegeridentificatorsgeneratorCpp1998
 					afclii98.hpp - Part Corelibrary1InstanceIncrementingintegeridentificatorsgeneratorCpp1998
