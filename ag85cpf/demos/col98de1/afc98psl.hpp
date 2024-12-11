@@ -9,7 +9,6 @@
 #include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclig98.hpp" //AG19850316CppframebraryPartCorelibrary1GlobalIncrementingintegeridentificatorsgeneratorCpp1998
 #include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclii98.hpp" //AG19850316CppframebraryPartCorelibrary1InstanceIncrementingintegeridentificatorsgeneratorCpp1998
 
-#include "afc98psc.hpp" //AG19850316CppframebraryPartCoreLibraryCpp1998Demo1ProgramCommandlineconfiguration
 #include "afc98pm.hpp" //AG19850316CppframebraryPartCoreLibraryCpp1998Demo1ProgramMeasurements
 
 namespace AG85{
@@ -24,16 +23,6 @@ namespace AG85{
             class ProgramCommonServicesLocator{
             public:
 
-                const ProgramCommandlineconfiguration & GetApplicationCommandlineconfiguration() const
-                {
-                    return demoGeneralDynamicconfiguration;
-                }
-
-                ProgramCommandlineconfiguration & GetNonconstrefApplicationCommandlineconfiguration() const
-                {
-                    return (ProgramCommandlineconfiguration &)nonconstrefApplicationCommandlineconfiguration;
-                }
-
                 ProgramMeasurements & GetApplicationMeasurements()
                 {
                     return applicationMeasurements;
@@ -41,14 +30,11 @@ namespace AG85{
 
                 explicit ProgramCommonServicesLocator
                 (
-                    ProgramCommandlineconfiguration & cDemoGeneralDynamicconfiguration
-                    , ProgramMeasurements & cApplicationMeasurements
+                    ProgramMeasurements & cApplicationMeasurements
                     , unsigned int demoIdsgrpoup1Startingvalue
                     , unsigned int demoIdsgrpoup2Startingvalue
                 )
-                :demoGeneralDynamicconfiguration(cDemoGeneralDynamicconfiguration)
-                , nonconstrefApplicationCommandlineconfiguration(cDemoGeneralDynamicconfiguration)
-                , applicationMeasurements(cApplicationMeasurements)
+                : applicationMeasurements(cApplicationMeasurements)
                 , demoIdgroup1(demoIdsgrpoup1Startingvalue)
                 {
                     demoIdgroup2.SetValueforGlobalIncrementalunsignedintegeridentificatorsgenerator(demoIdsgrpoup2Startingvalue);
@@ -67,8 +53,6 @@ namespace AG85{
                 }
 
             private:
-                const ProgramCommandlineconfiguration & demoGeneralDynamicconfiguration;
-                ProgramCommandlineconfiguration & nonconstrefApplicationCommandlineconfiguration;
 
                 ProgramMeasurements & applicationMeasurements;
 

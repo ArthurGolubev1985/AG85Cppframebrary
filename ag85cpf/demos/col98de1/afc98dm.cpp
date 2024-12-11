@@ -6,12 +6,10 @@
 
 #include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclsc98.hpp" //AG19850316CppframebraryPartCorelibrary1FramebraryStaticconfigurationCpp1998
 #include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afcbt98.hpp" //AG19850316CppframebraryPartCorelibrary1BufferTypedCpp1998
-#include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afcecs98.hpp" //AG19850316CppframebraryPartCorelibrary1EnvironmentCommandlineargumentsStorageCpp1998
 
 #include "afc98sco.hpp" //AG19850316CppframebraryPartCoreLibraryCpp1998Demo1ProgramStaticconfiguration
 
 #include "afc98pm.hpp" //AG19850316CppframebraryPartCoreLibraryCpp1998Demo1ProgramMeasurements
-#include "afc98psc.hpp" //AG19850316CppframebraryPartCoreLibraryCpp1998Demo1ProgramCommandlineconfiguration
 #include "afc98psl.hpp" //AG19850316CppframebraryPartLibraryCpp1998Demo1ProgramServiceslocator
 
 
@@ -60,19 +58,9 @@ int main(int argc, char * argv[]) {
         programMeasurements.GetGeneralInsecondstimersRef(ProgramMeasurements::TIMER_TOTAL).Run();
         programMeasurements.GetGeneralInsecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Run();
         
-        EnvironmentCommandlineStringArgumentsStorage environmentCommandlineStringArgumentsStorage(1, argc, argv);
-
-        ProgramCommandlineconfiguration demoProgramCommandlineconfiguration 
-        (
-            environmentCommandlineStringArgumentsStorage.GetEnvironmentCommandlineArguments().size() > 0
-            ? environmentCommandlineStringArgumentsStorage.GetEnvironmentCommandlineArguments()[0]
-            : ""
-        );
-
         ProgramCommonServicesLocator programServicelocator
         (
-            demoProgramCommandlineconfiguration
-            , programMeasurements
+            programMeasurements
             , 1
             , 2
         );
@@ -99,36 +87,7 @@ int main(int argc, char * argv[]) {
             << std::endl;
 
 
-        std::clog << "Look at source code for meanings of output values of this demo." << std::endl;
-
-        std::clog << "CoreLibraryCpp2011Demo1 starting configuration demo:" << std::endl;
-
-        std::clog 
-            << "\tapplicationServicelocator.GetNonconstrefApplicationCommandlineconfiguration().GetStringDemoParameter1Value():" 
-            << programServicelocator.GetNonconstrefApplicationCommandlineconfiguration().GetDemoParameter1StringvalueRef() 
-            << "\n";
-        if 
-        (
-            argc > 1
-            && programServicelocator.GetNonconstrefApplicationCommandlineconfiguration().GetDemoParameter1StringvalueRef() 
-            != argv[1]
-        )
-        {
-            return -4;
-        }
-        std::clog 
-            << "\tapplicationServicelocator.GetApplicationCommandlineconfiguration().GetStringDemoParameter1Value():"
-            << programServicelocator.GetApplicationCommandlineconfiguration().GetDemoParameter1StringvalueRef()
-            << "\n";
-        if 
-        (
-            argc > 1
-            && programServicelocator.GetApplicationCommandlineconfiguration().GetDemoParameter1StringvalueRef() 
-            != argv[1]
-        )
-        {
-            return -5;
-        }
+        std::clog << "Look at source code for meanings of the following demoes." << std::endl;
 
 
         std::clog << "Ids generators values demo:" << std::endl;
@@ -141,7 +100,7 @@ int main(int argc, char * argv[]) {
             << std::endl;
         if (currentIdOfGroup1 != 2)
         {
-            return -6;
+            return -4;
         }
 
         programServicelocator.GetNextIdOfGroup2();
@@ -152,7 +111,7 @@ int main(int argc, char * argv[]) {
             << std::endl;
         if (currentIdOfGroup2 != 3)
         {
-            return -7;
+            return -5;
         }
 
 
@@ -190,7 +149,7 @@ int main(int argc, char * argv[]) {
             )
         )
         {
-            return -8;
+            return -6;
         }
 
         std::clog 
@@ -216,7 +175,7 @@ int main(int argc, char * argv[]) {
             )
         )
         {
-                return -9;
+                return -7;
         }
 
 
