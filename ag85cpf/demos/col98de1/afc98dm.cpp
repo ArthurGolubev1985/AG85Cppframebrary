@@ -47,16 +47,14 @@ private:
 
 int main(int argc, char * argv[]) {
 
-    //using namespace AG85::Cppframebrary::CppVersion1998;
     using namespace AG85::Cppframebrary::CoreLibraryCpp1998Demo1;
 
 	try {
 
+
         ProgramMeasurements programMeasurements;
 
-
         programMeasurements.GetGeneralInsecondstimersRef(ProgramMeasurements::TIMER_TOTAL).Run();
-        programMeasurements.GetGeneralInsecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Run();
         
         ProgramCommonServicesLocator programServicelocator
         (
@@ -64,14 +62,6 @@ int main(int argc, char * argv[]) {
             , 1
             , 2
         );
-
-        programMeasurements.GetGeneralInsecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Pause();
-        #ifndef AG19850316_1CPPLIBRARY_TIMER_DISABLED
-        std::clog << "Inseconds total apllication configuring time:" 
-            << programMeasurements.GetGeneralInsecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).GetInsecondsinterval() 
-            << "\n";
-        #endif //AG19850316_1CPPLIBRARY_TIMER_ENABLED
-
 
         std::clog
             << "This demo program name:"

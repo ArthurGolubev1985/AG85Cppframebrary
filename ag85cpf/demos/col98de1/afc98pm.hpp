@@ -24,8 +24,7 @@ namespace AG85{
 
                 enum InsecondstimersIds
                 {
-                    TIMER_CONFIGURING
-                    , TIMER_TOTAL
+                    TIMER_TOTAL
                     , countingStubTimerIds
                 } ;
 
