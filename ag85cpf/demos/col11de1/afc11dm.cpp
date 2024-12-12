@@ -21,21 +21,12 @@ int main(int argc, char * argv[]) {
         ProgramMeasurements programMeasurements;
 
         programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_TOTAL).Run();
-        programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Run();
         
         ProgramCommonServicesLocator programServicelocator
         (
             programMeasurements
             , 1
         );
-
-        programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).Pause();
-        #ifndef AG19850316_1CPPLIBRARY_TIMER_DISABLED
-        std::clog << "In nanoseconds total apllication configuring time:" 
-            << programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_CONFIGURING).GetInnanosecondsinterval().count()
-            << "\n";
-        #endif //AG19850316_1CPPLIBRARY_TIMER_ENABLED
-
 
         std::clog 
             << "This demo program name:"

@@ -8,7 +8,6 @@
 #include "afcdefco.hpp" //AG19850316CppframebraryCorelibraryCpp2011Demo1ProgramCppdefinesconfiguration
 
 #include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclii11.hpp" //AG19850316CppframebraryPartCorelibrary1InstanceAtomicIncrementingintegeridentificatorsgeneratorCpp2011
-
 #include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclnt11.hpp" //AG19850316CppframebraryPartCorelibrary1UptoinnanosecondstimerCpp2011
 
 namespace AG85{
@@ -25,8 +24,7 @@ namespace AG85{
 
                 enum UptonanosecondstimersIds
                 {
-                    TIMER_CONFIGURING
-                    , TIMER_TOTAL
+                    TIMER_TOTAL
                     , countingStubTimerIds
                 } ;
 
