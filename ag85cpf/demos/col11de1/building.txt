@@ -1,4 +1,0 @@
-AG85CppframebraryPartCorelibraryCpp19985Demo1 compiling: 
-Compile with a C++ compiler with specifing as input files *.cpp files from the following directories: 
-- directory of the demo;
-- directory of the AG85Cppframebrary Corelibrary Part Cpp2011 and 1.
