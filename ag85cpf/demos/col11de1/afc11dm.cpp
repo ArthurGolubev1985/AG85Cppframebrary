@@ -57,16 +57,6 @@ int main(int argc, char * argv[]) {
         {
             return -4;
         }
-        programServicelocator.GetNextAtomicidOfGroup2();
-        unsigned int currentAtomicidOfGroup2 = programServicelocator.GetNextAtomicidOfGroup2();
-        std::clog 
-            << "\tcurrentAtomicidOfGroup2 (programServicelocator.GetNextAtomicidOfGroup2()):"
-            << currentAtomicidOfGroup2
-            << std::endl;
-        if (currentAtomicidOfGroup2 != 1)
-        {
-            return -5;
-        }
 
 
         programMeasurements.GetGeneralUptoinnanosecondstimersRef(ProgramMeasurements::TIMER_TOTAL).Pause();

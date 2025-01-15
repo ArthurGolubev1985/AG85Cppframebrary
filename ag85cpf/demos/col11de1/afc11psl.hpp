@@ -6,8 +6,7 @@
 #include <list>
 #include <string>
 
-#include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclig11.hpp" //AG19850316CppframebraryPartCorelibrary1GlobalAtomicIncrementingintegeridentificatorsgeneratorCpp2011
-#include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclii11.hpp" //AG19850316CppframebraryPartCorelibrary1InstanceAtomicIncrementingintegeridentificatorsgeneratorCpp2011
+#include "..//..//libssrc//ag85cpfl//cpp2011//apfcol11//1//afclai11.hpp" //AG19850316CppframebraryPartCorelibrary1AtomicIncrementingintegeridentificatorsgeneratorCpp2011
 
 #include "afc11pm.hpp" //AG19850316CppframebraryPartCoreLibraryCpp2011Demo1ProgramMeasurements
 
@@ -44,18 +43,11 @@ namespace AG85{
 
                 }
 
-                unsigned int GetNextAtomicidOfGroup2(){
-
-                    return demoAtomicidOfGroup2.GetNextIdentificator();
-
-                }
-
             private:
 
                 ProgramMeasurements & applicationMeasurements;
 
                 InstanceAtomicIncrementalunsignedintegeridentificatorsgenerator demoAtomicidOfGroup1;
-                GlobalAtomicIncrementalunsignedintegeridentificatorsgenerator demoAtomicidOfGroup2;
 
             }; //ProgramCommonServicesLocator
 
