@@ -60,7 +60,6 @@ int main(int argc, char * argv[]) {
         (
             programMeasurements
             , 1
-            , 2
         );
 
         std::clog
@@ -92,18 +91,6 @@ int main(int argc, char * argv[]) {
         {
             return -4;
         }
-
-        programServicelocator.GetNextIdOfGroup2();
-        unsigned int currentIdOfGroup2 = programServicelocator.GetNextIdOfGroup2();
-        std::clog 
-            << "\tcurrentIdOfGroup2 (programServicelocator.GetNextIdOfGroup2()):"
-            << currentIdOfGroup2
-            << std::endl;
-        if (currentIdOfGroup2 != 3)
-        {
-            return -5;
-        }
-
 
         std::clog << "BufferTyped library demo:" << std::endl;
 
@@ -139,7 +126,7 @@ int main(int argc, char * argv[]) {
             )
         )
         {
-            return -6;
+            return -5;
         }
 
         std::clog 
@@ -165,7 +152,7 @@ int main(int argc, char * argv[]) {
             )
         )
         {
-                return -7;
+                return -6;
         }
 
 

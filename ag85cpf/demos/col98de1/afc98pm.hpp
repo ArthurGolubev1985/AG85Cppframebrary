@@ -7,7 +7,6 @@
 
 #include "afcdefco.hpp" //ApplicationCppdefinesconfiguration
 
-#include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclii98.hpp" //AG19850316CppframebraryPartCorelibrary1IncrementingintegeridentificatorsgeneratorCpp1998
 #include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclst98.hpp" //AG19850316CppframebraryPartCorelibrary1InsecondstimerCpp1998
 
 namespace AG85{

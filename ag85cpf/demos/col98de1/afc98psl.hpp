@@ -6,8 +6,7 @@
 #include <list>
 #include <string>
 
-#include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclig98.hpp" //AG19850316CppframebraryPartCorelibrary1GlobalIncrementingintegeridentificatorsgeneratorCpp1998
-#include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclii98.hpp" //AG19850316CppframebraryPartCorelibrary1InstanceIncrementingintegeridentificatorsgeneratorCpp1998
+#include "..//..//libssrc//ag85cpfl//cpp1998//apfcol98//1//afclig98.hpp" //AG19850316CppframebraryPartCorelibrary1IncrementingintegeridentificatorsgeneratorCpp1998
 
 #include "afc98pm.hpp" //AG19850316CppframebraryPartCoreLibraryCpp1998Demo1ProgramMeasurements
 
@@ -32,12 +31,10 @@ namespace AG85{
                 (
                     ProgramMeasurements & cApplicationMeasurements
                     , unsigned int demoIdsgrpoup1Startingvalue
-                    , unsigned int demoIdsgrpoup2Startingvalue
                 )
                 : applicationMeasurements(cApplicationMeasurements)
                 , demoIdgroup1(demoIdsgrpoup1Startingvalue)
                 {
-                    demoIdgroup2.SetValueforGlobalIncrementalunsignedintegeridentificatorsgenerator(demoIdsgrpoup2Startingvalue);
                 }
 
                 unsigned int GetNextIdOfGroup1(){
@@ -46,18 +43,11 @@ namespace AG85{
 
                 }
 
-                unsigned int GetNextIdOfGroup2(){
-
-                    return demoIdgroup2.GetNextIdentificator();
-
-                }
-
             private:
 
                 ProgramMeasurements & applicationMeasurements;
 
                 InstanceIncrementalunsignedintegeridentificatorsgenerator demoIdgroup1;
-                GlobalIncrementalunsignedintegeridentificatorsgenerator demoIdgroup2;
 
             }; //class ProgramCommonServicesLocator
 
