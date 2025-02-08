@@ -5,7 +5,7 @@ libssrc/
 			apfcol98
 				1
 					afcbt98.hpp - Part Corelibrary1BufferTypedCpp1998
-					afclig98.hpp - Part Corelibrary1IncrementingintegeridentificatorsgeneratorCpp1998
+					afclii98.hpp - Part Corelibrary1IncrementingintegeridentificatorsgeneratorCpp1998
 					afclsc98.hpp - Part Corelibrary1FramebraryStaticconfigurationCpp1998
 					afclst98 - Part Corelibrary1InsecondstimerCpp1998
 		cpp2011
@@ -15,6 +15,6 @@ libssrc/
 					afclnt11.hpp - Part Corelibrary1UptoinnanosecondstimerCpp2011
 					afclsc11.hpp - Part Corelibrary1FramebraryStaticconfigurationCpp2011
 demos/
-	col98de1 <without detail> - core library part cpp1998 and 1 demo 1
-	col11de1 <without detail> - core library part cpp2011 and 1 demo 1
+	col98de1 - Demo 1 for Core Library Part cpp1998 And 1
+	col11de1 - Demo 1 for Core Library Part cpp2011 And 1
 
