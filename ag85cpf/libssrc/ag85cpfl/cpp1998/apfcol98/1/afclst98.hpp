@@ -1,128 +1,122 @@
 
 #pragma once
-#ifndef AFCLST98_1_HPP //AG19850316CppframebraryPartCorelibrary1InsecondstimerCpp1998
-#define AFCLST98_1_HPP //AG19850316CppframebraryPartCorelibrary1InsecondstimerCpp1998
+#ifndef AFCLST98_1_HPP //AG19850316CppframebraryPartCorelibrary1InsecondsTimerCpp1998
+#define AFCLST98_1_HPP //AG19850316CppframebraryPartCorelibrary1InsecondsTimerCpp1998
 
 #include <ctime>
 
 namespace AG85{
+namespace Cppframebrary{
+namespace Corelibrary1{
+namespace CppVersion1998{
 
-	namespace Cppframebrary{
+//Note:
+// empty functions are expected to be not called by a compiler
+//, so that it costs nothing in run-time if timering is set off
+//, so that funtions are empty by c++ defines.
 
-		namespace Corelibrary1{
+	class InsecondsTimer{
+	public:
 
-			namespace CppVersion1998{
+		//the helper for Pauseping insecondstimer in RAII manner
+		class RunAndAutoPauseGuard{
+			InsecondsTimer& insecondsTimerRef;
+		public:
+			explicit RunAndAutoPauseGuard(InsecondsTimer& initInsecondsTimerRef)
+				: insecondsTimerRef(initInsecondsTimerRef)
+			{
+				insecondsTimerRef.Run();
+			}
+			~RunAndAutoPauseGuard()
+			{
+				insecondsTimerRef.Pause();
+			}
+		};
 
-				//Note:
-				// empty functions are expected to be not called by a compiler
-				//, so that it costs nothing in run-time if timering is set off
-				//, so that funtions are empty by c++ defines.
+		//the helper for auto resuming insecondstimer in RAII manner
+		class PauseAndAutoResumeGuard{
+			InsecondsTimer& insecondsTimerRef;
+		public:
+			explicit PauseAndAutoResumeGuard(InsecondsTimer& initInsecondsTimerRef)
+				: insecondsTimerRef(initInsecondsTimerRef)
+			{
+				insecondsTimerRef.Pause();
+			}
+			~PauseAndAutoResumeGuard() {
+				insecondsTimerRef.Run();
+			}
+		};
 
-				class Insecondstimer{
-				public:
+	public:
+		InsecondsTimer()
+			:state(paused)
+		{
+	#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
+			Reset();
+	#endif
+		}
 
-					//the helper for Pauseping insecondstimer in RAII manner
-					class RunAndAutoPauseGuard{
-						Insecondstimer& insecondstimer;
-					public:
-						explicit RunAndAutoPauseGuard(Insecondstimer& nTimer)
-							: insecondstimer(nTimer)
-						{
-							insecondstimer.Run();
-						}
-						~RunAndAutoPauseGuard()
-						{
-							insecondstimer.Pause();
-						}
-					};
+		//continue paused insecondstimer
+		void Run(){
+	#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
+			if (state != running){
+				startStamp = time(NULL);
+				state = running;
+			}
+	#endif
+		}
 
-					//the helper for auto resuming insecondstimer in RAII manner
-					class PauseAndAutoResumeGuard{
-						Insecondstimer& insecondstimer;
-					public:
-						explicit PauseAndAutoResumeGuard(Insecondstimer& nTimer)
-							: insecondstimer(nTimer)
-						{
-							insecondstimer.Pause();
-						}
-						~PauseAndAutoResumeGuard() {
-							insecondstimer.Run();
-						}
-					};
+		void Pause(){
+	#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
+			if (state == running){
+				sum += (time(NULL) - startStamp);
+				state = paused;
+			}
+	#endif
+		}
 
-				public:
-					Insecondstimer()
-					: state(paused)
-					{
-				#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
-						Reset();
-				#endif
-					}
+		void Reset(){
+	#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
+			sum = 0;
+			startStamp = time(NULL);
+	#endif
+		}
 
-					//continue paused insecondstimer
-					void Run(){
-				#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
-						if (state != running){
-							startStamp = time(NULL);
-							state = running;
-						}
-				#endif
-					}
+		time_t GetInsecondsinterval() const {
+	#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
+			if (state != paused){
+				return sum + (time(NULL) - startStamp);
+			} else {
+				return sum;
+			}
+	#else
+			return 0;
+	#endif
+		}
 
-					void Pause(){
-				#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
-						if (state == running){
-							sum += (time(NULL) - startStamp);
-							state = paused;
-						}
-				#endif
-					}
+		void operator= (const InsecondsTimer & aInsecondstimer)
+		{
+			startStamp = aInsecondstimer.startStamp;
+			sum = aInsecondstimer.sum;
+			state = aInsecondstimer.state;
+		}
+		
+	private:
 
-					void Reset(){
-				#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
-						sum = 0;
-						startStamp = time(NULL);
-				#endif
-					}
+		enum {paused, running} state;
 
-					time_t GetInsecondsinterval() const {
-				#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
-						if (state != paused){
-							return sum + (time(NULL) - startStamp);
-						} else {
-							return sum;
-						}
-				#else
-						return 0;
-				#endif
-					}
+		time_t startStamp;
 
-					void operator= (const Insecondstimer & aInsecondstimer)
-					{
-						startStamp = aInsecondstimer.startStamp;
-						sum = aInsecondstimer.sum;
-						state = aInsecondstimer.state;
-					}
-					
-				private:
+		time_t sum;
+		
+	}; //Insecondstimer
 
-					enum {paused, running} state;
-				
-					time_t startStamp;
-				
-					time_t sum;
-					
-				}; //Insecondstimer
-
-			} //namespace CppVersion1998
-
-        } //namespace Corelibrary1
-
-	} //namespace Cppframebrary
-
+} //namespace CppVersion1998
+} //namespace Corelibrary1
+} //namespace Cppframebrary
 } //namespace AG19850316
 
-#endif //AFCLST98_1_HPP - AG19850316CppframebraryPartCorelibrary1InsecondstimerCpp1998
+#endif //AFCLST98_1_HPP - AG19850316CppframebraryPartCorelibrary1InsecondsTimerCpp1998
 
 // Author: Arthur Golubev 1985 (ArthurGolubev1985)
 // This file is a part of AG19850316 C++ Framebrary (ag85cppframebrary)
