@@ -109,7 +109,7 @@ namespace CppVersion1998{
 
 		time_t sum;
 		
-	}; //Insecondstimer
+	}; //class InsecondsTimer
 
 } //namespace CppVersion1998
 } //namespace Corelibrary1
