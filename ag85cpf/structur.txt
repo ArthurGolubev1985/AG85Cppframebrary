@@ -1,20 +1,18 @@
 AG19850316Cppframebrary directories and files structures:
 libssrc/
-	ag85cpfl
-		cpp1998
-			apfcol98
-				1
+	ag85cpfl/
+		cpp1998/
+			apfcol98/
+				1/
 					afcbt98.hpp - Part Corelibrary1BufferTypedCpp1998
-					afclii98.hpp - Part Corelibrary1IncrementingintegeridentificatorsgeneratorCpp1998
-					afclsc98.hpp - Part Corelibrary1FramebraryStaticconfigurationCpp1998
-					afclst98 - Part Corelibrary1InsecondstimerCpp1998
-		cpp2011
-			apfcol11
-				1
-					afclai11.hpp - Part Corelibrary1AtomicIncrementingintegeridentificatorsgeneratorCpp2011
-					afclnt11.hpp - Part Corelibrary1UptoinnanosecondstimerCpp2011
-					afclsc11.hpp - Part Corelibrary1FramebraryStaticconfigurationCpp2011
+					afclii98.hpp - Part Corelibrary1IncrementalIdsGeneratorCpp1998
+					afclst98 - Part Corelibrary1InsecondsTimerCpp1998
+		cpp2011/
+			apfcol11/
+				1/
+					afclai11.hpp - Part Corelibrary1AtomicIncrementalIdsGeneratorCpp2011
+					afclnt11.hpp - Part Corelibrary1UptoinnanosecondsTimerCpp2011
 demos/
-	col98de1 - Demo 1 for Core Library Part cpp1998 And 1
-	col11de1 - Demo 1 for Core Library Part cpp2011 And 1
+	col98de1/ - Demo 1 for Core Library Part cpp1998 and 1
+	col11de1/ - Demo 1 for Core Library Part cpp2011 and 1
 
