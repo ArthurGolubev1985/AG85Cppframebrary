@@ -82,7 +82,7 @@ namespace CppVersion1998{
 	#endif
 		}
 
-		time_t GetInsecondsinterval() const {
+		time_t GetInsecondsInterval() const {
 	#ifndef AG19850316_AFCLST98_1_TIMER_DISABLED
 			if (state != paused){
 				return sum + (time(NULL) - startStamp);
@@ -94,11 +94,11 @@ namespace CppVersion1998{
 	#endif
 		}
 
-		void operator= (const InsecondsTimer & aInsecondstimer)
+		void operator= (const InsecondsTimer & aInsecondsTimer)
 		{
-			startStamp = aInsecondstimer.startStamp;
-			sum = aInsecondstimer.sum;
-			state = aInsecondstimer.state;
+			startStamp = aInsecondsTimer.startStamp;
+			sum = aInsecondsTimer.sum;
+			state = aInsecondsTimer.state;
 		}
 		
 	private:
